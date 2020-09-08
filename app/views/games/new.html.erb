@@ -1,0 +1,18 @@
+<h1>NEW GAME</h1>
+
+<% @letters.each do |letter| %>
+  <span class="letter"><%= letter %></span>
+<% end %>
+<p></p>
+<p></p>
+<p></p>
+<p>What's the longest word you can build with the provided letters?</p>
+<p></p>
+<p></p>
+<p></p>
+<form action="/score" method="post">
+  <input type="text" name="answer" value="<%= params[:answer] %>">
+  <input type="submit" value="PLAY!">
+  <%= hidden_field_tag :authenticity_token, form_authenticity_token %>
+  <%= hidden_field_tag :grid, @letters %>
+</form>
